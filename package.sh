@@ -22,6 +22,7 @@ cd release
 release_dir=`pwd`
 
 mkdir -p deps/xmldumper_apks
+mkdir -p deps/scrcpy
 mkdir -p uicdcli
 
 # build uicd xmldumper server
@@ -61,6 +62,8 @@ cd $release_dir
 chmod -R a+rw .
 echo -e "username=$(whoami)\nuicdbasepath=$PWD\nxmldumperversion=3.1.2\nmysqlconnectionstr=<mysqlconnectionstr>\nuicd_local_mode=false\n" > ./uicd.cfg
 
+# copy scrcpy-server.apk from prebuild
+cp $root_dir/prebuild/deps/scrcpy/scrcpy-server.apk $release_dir/deps/scrcpy/scrcpy-server.apk
 
 echo "Finished build UIConductor"
 
